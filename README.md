@@ -33,6 +33,10 @@ AC 直接读有类型世界参数，支持变量、计算、条件、有界循�
 
 从源码仓 main 的 rdd-core/、world-state-core/、experience-core/、settlement-core/ 看领域逻辑，plugins/ 看游戏适配，api/、core/、ai/ 看底座与运行接缝。完整路径说明在[源码首页](https://github.com/nuomi2422/minecraft-numen/tree/main)。不要按本仓旧 src/ 或 patches/ 副本重装；它们仅为历史资料，不是另一套活跃源码。
 
+## 许可、贡献与费用
+
+现有材料按本仓MIT及各自适用声明保留，不因门面身份改成LGPL。新贡献遵循[贡献说明](CONTRIBUTING.md)及[DCO 1.1](DCO)，不要求版权转让。Harness的新原创核心接收政策见其[许可范围](https://github.com/nuomi2422/rdd-harness/blob/main/LICENSING.md)，不是现有代码已整仓AGPL的承诺。项目开源代码不收软件许可费，但用户自备模型/API、计算、游戏账号及服务器等第三方费用；不承诺无限免费算力。
+
 ## 来源、许可与历史资料
 
 保留本仓既有视觉资产和历史资料，不把旧看板数字或旧实验当作当前状态。上游 Numen 源码、公共 API、美术资源分别遵循其 LICENSE、LICENSE-API、LICENSE-ASSETS；本仓自有内容按本仓[许可证](LICENSE)，不覆盖上游许可。

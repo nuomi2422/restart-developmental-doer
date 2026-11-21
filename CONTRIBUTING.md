@@ -1,68 +1,13 @@
-# Contributing
+# Contributing to the RDD project front door
 
-## 这个项目接受什么样的贡献
+This is the project-navigation and presentation repository. Active game code belongs in [minecraft-numen/main](https://github.com/nuomi2422/minecraft-numen/tree/main), engineering tools in [rdd-harness/main](https://github.com/nuomi2422/rdd-harness/tree/main), and reviewed public design in [rdd-docs-public/main](https://github.com/nuomi2422/rdd-docs-public/tree/main). Historical copies here are not new implementation sources. Do not run old game or gate commands merely to correct this README.
 
-先说清楚这个项目的性格，免得你白花时间：
+## New contributions: DCO 1.1
 
-**我们最欢迎的是「你发现我们在说谎」。** 任何一条结论、一个数字、一句「已完成」，如果你能找到它站不住脚的证据，那是最有价值的贡献——比新增功能有用得多。
+Read [DCO](DCO); submit new commits with your own informed sign-off (`git commit -s`). It certifies that you have the right to contribute under the applicable license; it does not transfer your copyright, sign for other authors or give maintainers unlimited relicensing rights. Public sign-off identity and email become part of public history. Do not fabricate or backfill other people's sign-offs. AI assistance does not remove the human submitter's provenance and review responsibilities.
 
-具体来说：
+State what changed, why, sources, license and validation. Keep upstream attribution and distinguish design from implemented/verified behavior. No secrets, private logs, personal conversations, game saves or unreviewed attachments. Check link targets and branch names.
 
-| 欢迎 | 不太欢迎 |
-|---|---|
-| 指出某条结论缺证据 / 证据对不上 | 只加功能不管判据的 PR |
-| 指出门禁能被绕过、裁判会误判 | 大规模重构（本项目有并行会话在改） |
-| 指出文档说的和代码做的不一致 | 纯格式调整（缩进、换行、措辞偏好） |
-| 修明确的 bug，带复现步骤 | 「顺便清理了一下」的混合 PR |
-| 补充你那个环境下跑不通的坑 | 删掉「跑输的实验」记录 |
+The existing root LICENSE remains MIT for covered existing material. This repository is not an API library and is not blanket-relicensed to LGPL or AGPL. The old CONTRIBUTING sentence calling all documents CC BY 4.0 did not change the root LICENSE; do not rely on that inconsistency to relicense third-party or prior material. Files carrying an explicit separate license retain it. The separately published documentation repository uses its own CC BY 4.0 notice. New content may only adopt a different license with an explicit path-specific notice and the required rights.
 
-## 提 issue 之前
-
-1. **先跑自测**，确认不是环境问题：
-
-   ```powershell
-   node bin/harness-gate.js selftest
-   node bin/exp-card.js selftest
-   node bin/exp-judge.js --selftest
-   ```
-
-2. **搜一下已有的 issue**，尤其是标了 `known-limitation` 的——有些坑我们知道，并且写了到期日（见下文「时间锁」）。
-
-## 提 PR 的规矩
-
-- **一个 PR 只做一件事。** 混合 PR 会被要求拆开。
-- **改了判据，必须说明为什么。** 判据是这套东西的根，改它要单独讨论。
-- **新增结论必须带证据坐标**：`文件:行号`、命令 + 输出 + 时间。拿不到就写「未核实」，不要用「应该」「大概」冒充事实。
-- **不要提交任何密钥**。包括 API key、token、私钥、带凭据的配置文件。`multimodel/` 里只放定价表，不放 key。
-- **不要提交可再生成的东西**：`build/`、`node_modules/`、`runs/` 里的产物、日志、游戏实例、模型缓存。
-- **提交信息写清楚做了什么、为什么**。不要 `fix`、`update`、`wip`。
-
-## 三态纪律（重要）
-
-本项目所有状态必须三态分明：
-
-- ✅ **已完成** —— 有证据，能复现
-- 🟡 **已写码未实测** —— 代码写了，没在真实环境跑过
-- ⬜ **计划中** —— 还没做
-
-**编译成功不算 ✅。** 如果你提的 PR 只是让代码编译过了，标 🟡。
-
-## 关于「时间锁」
-
-有些坑我们**决定这一轮不修**。这不是偷懒，是记账：每条不修的坑必须在 `registry.json` 的 `timeLocks` 里留一条记录，写明症状、影响、护栏、**到期日**。到期不复核，门禁会 BLOCK。
-
-如果你想修其中一条，很好——但请先看它的 `guard` 字段，那是这条坑的验收判据。
-
-## 实验类贡献
-
-如果你想加一个实验，请注意：
-
-1. **判据先冻结，再开跑。** 不许跑完再补判据。
-2. **必须有正负对照。** 正向对照证明实验能跑出成功，负向对照证明裁判能判失败。
-3. **必须有失败阈值。** 只写「≥N 算成功」不合格，还要写「≤M 算失败」，中间判 INCONCLUSIVE。
-4. **样本不足就写样本不足**，不要制造显著性。
-5. **跑输的结果也要提交。** 这是本项目最重要的资产之一。
-
-## 许可证
-
-贡献的代码按 MIT，文档按 CC BY 4.0（见 [LICENSE](LICENSE)）。提交 PR 即表示你同意按此授权。
+No new mandatory CI or branch protection is imposed by this documentation change. No copyright assignment or CLA is requested.
