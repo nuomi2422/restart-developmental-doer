@@ -1,44 +1,47 @@
 # RDD · Restart Developmental Doer
 
-**这里是项目总门面，不是 Numen 原作者仓，也不是当前游戏源码仓。默认看 master。**
+**让 AI 在 Minecraft 中持续完成任务、积累方法，并用真实游戏结果检验改进。**
 
-RDD 以真实 Minecraft 检验长程自主任务、可复用能力和持续改进；基于 [Dwinovo/Numen](https://github.com/Dwinovo/minecraft-numen) 的底座继续开发，不宣称上游代码、名称和资源为我们原创。已有部分能力，完整轮回准备框架仍需接线与组合验证，不是即用成品。
+这是项目介绍入口，不是游戏安装包，也不是源码仓。RDD 基于 [Dwinovo 的 Numen](https://github.com/Dwinovo/minecraft-numen) 开发；原作者提供游戏内 AI 同伴底座，我们在其上研究长程任务、动作组合、世界记忆、学习和工程验证。**目前是开发与集成验证阶段，尚无经过独立新机验证的“一键安装即可体验完整 RDD”版本。**
 
-## 先选对仓库
+## 第一次来，从这三页开始
 
-| 仓库 | 负责什么 | 阅读分支 |
+- **[快速开始](QUICKSTART.md)**：不需要密钥的阅读与离线入口；开发者去哪里取代码；玩家目前能期待什么。
+- **[当前状态](STATUS.md)**：已有的部分、没有证明的部分、下一步，以及历史记录为什么不能当今天的结论。
+- **[十个词看懂项目](GLOSSARY.md)**：AC、宿主、身体、轮回等词各一句话。
+
+> **找游戏源码，请去 [minecraft-numen 的 main 分支](https://github.com/nuomi2422/minecraft-numen/tree/main)。本仓旧源码、补丁、工具和文档已移入 [archive/](archive/README.md)，不是当前实现或安装教程。**
+
+## 项目怎样工作
+
+1. **看世界**：取得自己、附近环境及已知基地资源的可靠状态，区分当前、过期和未知。
+2. **选任务和方法**：规划长期目标；执行者根据现场选择主线、支线或日常任务，并能说明为什么。
+3. **组合动作**：动作脚本（AC）读取参数、计算和选择，再调用移动、采集等已有工具。多项检查可同时进行，但同一角色的冲突动作由一处裁决。
+4. **看真实结果**：检查实际产出和后态，学习者据此保留、改进或撤回方法。工具返回成功不等于游戏目标完成。
+
+这些是完整框架的设计与正在接线的能力，**不是全部已交付的功能列表**。共同的数据路线是：世界观测 → 有界计算与存储 → 读取/检索 → 任务与动作 → 世界结果 → 学习反馈。当前以“安家过夜”等场景检验接线，不以过一夜代替完整通关或所有能力验收。
+
+## 你要找的东西在哪
+
+| 想看什么 | 仓库 | 阅读分支 |
 |---|---|---|
-| [restart-developmental-doer](https://github.com/nuomi2422/restart-developmental-doer/tree/master) | 唯一总门面、项目地图与阅读顺序 | master |
-| [minecraft-numen](https://github.com/nuomi2422/minecraft-numen/tree/main) | 基于 Dwinovo/Numen 的 RDD 游戏源码 fork | main |
-| [rdd-harness](https://github.com/nuomi2422/rdd-harness/tree/main) | 外部 AI 的工程工具、验证和协作入口 | main |
-| [rdd-docs-public](https://github.com/nuomi2422/rdd-docs-public/tree/main) | 经审查脱敏的现行知识库发布版，不含旧历史 | main |
-| [rdd-docs](https://github.com/nuomi2422/rdd-docs/tree/master) | 私有维护主库、内部历史与敏感原证；需权限 | master |
+| 项目全貌、术语、状态与入门 | **本仓** restart-developmental-doer | master |
+| 游戏代码和模块目录 | [minecraft-numen](https://github.com/nuomi2422/minecraft-numen/tree/main) | main |
+| 当前公开设计与准备范围 | [rdd-docs-public](https://github.com/nuomi2422/rdd-docs-public/tree/main) | main |
+| 外部 AI 的工程工具、验证和协作 | [rdd-harness](https://github.com/nuomi2422/rdd-harness/tree/main) | main |
 
-公开阅读顺序：**本门面了解全貌 → 公开文档了解设计 → 源码核实现 → Harness 查工程办法**。原作者上游只拉不推；本地 origin/backup 只是别名，不决定哪个仓是真源。
+另有私有维护主库 rdd-docs/master，保留内部原件与历史，**不是公开读者的必经入口**。公开文档是逐篇审查后的摘要，不是完整知识库或所有实验原件的镜像。[源码地图](SOURCE-MAP.md)提供各仓身份说明。
 
-## 四条线与共同数据底座
+## 玩家与开发者分别怎么看
 
-- **运行时保证**：主/支/日常并行待办，执行者按优先级、原因及当前事实选择；监督只接断链，重要损失按备用、回收条件和路线影响重评。
-- **学习**：外置学习者从真实输入、选择、动作和世界后态查重写改，机器检查后试用，再核采用与效果；内部框架内组合是后续增强。
-- **外部编程**：修自有框架和原子工具，保留版本、测试、发布及回退。
-- **沉淀资产**：长期保存有用途的基地、设施、资源及探索地图；历史见过不冒当前可用。
+**玩家：** 先读[快速开始的玩家边界](QUICKSTART.md#玩家想直接体验)；不要从本仓归档复制旧插件或按旧补丁重装。原版 Numen 的体验与完整 RDD 框架是两件事，不把原版运行成功写成 RDD 已验收。
 
-共同链路是：**世界增量获取 → 原始观测存储 → 公共有界计算 → 派生缓存与失效 → 精确读取/语义检索 → 任务、AC、环境和规划/执行实际消费 → 世界结果与学习反馈**。各领域保原写权，不另造全知世界库。
+**开发者：** 在源码仓 main 看领域逻辑、游戏适配与底座目录；在公开文档看设计，在 Harness 看工程工具。具体环境和构建限制见[快速开始](QUICKSTART.md#开发者想看实现)。欢迎指出可复现的问题、补适配和验证；本页不承诺全模组已适配。
 
-AC 直接读有类型世界参数，支持变量、计算、条件、有界循环、参数积木、临时组合与子 AC；多个 AC 能并行观察、计算和等待，身体冲突由唯一宿主裁决。抢占保断点，恢复先重看现场，工具自查真实进展并有限自救。经验、AC、任务/环境模板和设施方法可独立使用，也可按版本引用组成 skills；各自生命周期不强并。
+## 来源、许可与费用
 
-## 当前阶段与怎么看源码
+保留 Numen 及其他第三方署名和各自许可；本仓说明不覆盖上游代码、API、名称或美术资源授权。本仓既有材料按 [LICENSE](LICENSE) 及适用声明保留，新贡献见 [CONTRIBUTING](CONTRIBUTING.md) 与 [DCO](DCO)。项目自有开源代码不收软件许可费，不承诺无限免费模型调用、计算资源或第三方服务。Harness 的前瞻许可范围见其[许可说明](https://github.com/nuomi2422/rdd-harness/blob/main/LICENSING.md)，不是对旧 MIT 核心已完成重许可的声明。
 
-准备工程四包并行：任务/监督、AC/执行、世界/环境/资产、学习/组装/实验工具，由主工联调。安家过夜只是首例，不代签完整准备；后续供食、交易、采矿遇险和损失恢复用于验证通用性，再进入正式通关轮回。设计、源码、离线、安装/加载、实际调用和世界效果分别记账。
+## 历史资料
 
-从源码仓 main 的 rdd-core/、world-state-core/、experience-core/、settlement-core/ 看领域逻辑，plugins/ 看游戏适配，api/、core/、ai/ 看底座与运行接缝。完整路径说明在[源码首页](https://github.com/nuomi2422/minecraft-numen/tree/main)。不要按本仓旧 src/ 或 patches/ 副本重装；它们仅为历史资料，不是另一套活跃源码。
-
-## 许可、贡献与费用
-
-现有材料按本仓MIT及各自适用声明保留，不因门面身份改成LGPL。新贡献遵循[贡献说明](CONTRIBUTING.md)及[DCO 1.1](DCO)，不要求版权转让。Harness的新原创核心接收政策见其[许可范围](https://github.com/nuomi2422/rdd-harness/blob/main/LICENSING.md)，不是现有代码已整仓AGPL的承诺。项目开源代码不收软件许可费，但用户自备模型/API、计算、游戏账号及服务器等第三方费用；不承诺无限免费算力。
-
-## 来源、许可与历史资料
-
-保留本仓既有视觉资产和历史资料，不把旧看板数字或旧实验当作当前状态。上游 Numen 源码、公共 API、美术资源分别遵循其 LICENSE、LICENSE-API、LICENSE-ASSETS；本仓自有内容按本仓[许可证](LICENSE)，不覆盖上游许可。
-
-原 rdd-restart-doer 为重复入口，停止发布并在核备份/迁移后处理；不是第二门面。私有主库不删除、不改公开权限，公开文档只是审查后的投影，不带私有 Git 历史、凭据、原始聊天或未审附件。公开文档的链接在首发完成后可用，不能由仓名推定发布已经成功。
+[archive/](archive/README.md)仅用于追溯旧实现和当时的实验，旧数字、旧路径和旧流程不代表现在。新读者不需要先读完归档。文档日期、状态依据和未公开原证的限制统一见 [STATUS.md](STATUS.md)。
