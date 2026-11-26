@@ -1,4 +1,4 @@
-# AI 专用入口：先查架构，再读三仓
+# AI 专用入口：先查架构，再读四个平行仓
 
 > 适用：外部编码、架构与验证 AI。这里是导航，不是开工授权，也不是游戏世界真值。
 >
@@ -32,21 +32,22 @@ node cli.mjs arch_integrity
 
 **判断边界：** 图谱是索引，不是世界真值、部署证明或自动派工器。设计、源码、构建、安装/加载、实机行为、效果必须分别核；`arch_next` 只是候选，不是授权。
 
-## 2. 三个实现仓都可以读
+## 2. 四个平行仓都可以读
 
 | 仓库 | 阅读分支 | 用来查什么 |
 |---|---|---|
+| [rdd-docs-public](https://github.com/nuomi2422/rdd-docs-public/tree/main) | `main` | 独立架构知识层：公开图谱、只读 MCP、架构正文与决策 |
 | [minecraft-numen](https://github.com/nuomi2422/minecraft-numen/tree/main) | `main` | 游戏领域实现、Minecraft 适配、AC、任务链、世界观测与测试 |
 | [rdd-harness](https://github.com/nuomi2422/rdd-harness/tree/main) | `main` | 写码/构建/验证/记录/协作工具、注册表、上传纪律 |
 | [restart-developmental-doer](https://github.com/nuomi2422/restart-developmental-doer/tree/master) | `master` | 项目门面、仓库地图、术语、状态与公开阅读顺序 |
 
-公开架构正文来自 [rdd-docs-public](https://github.com/nuomi2422/rdd-docs-public/tree/main)；私有 `rdd-docs/master` 只在有权限时补充，不能要求公开读者先取得私有凭据。
+私有 `rdd-docs/master` 只在有权限时补充，不能要求公开读者先取得私有凭据。
 
 ## 3. 推荐阅读顺序
 
 1. `arch_overview` 看总目标与项目地图。
 2. `arch_search` / `arch_focus` 定位模块、父链、关系和证据。
-3. 回三仓读真实源码、测试和注册入口，不把图谱摘要当实现。
+3. 回四个平行仓读真实源码、测试、注册入口与知识层正文，不把图谱摘要当实现。
 4. 需要判断效果时，沿源码→测试→构建→安装/加载→真实调用→世界后态逐层取证。
 5. 修改前写清文件边界、兼容约束、正反例和未覆盖项；修改后回填证据，不自行把“未验”改成“有效”。
 

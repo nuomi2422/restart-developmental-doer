@@ -4,6 +4,23 @@
 
 这是项目介绍入口，不是游戏安装包，也不是源码仓。RDD 基于 [Dwinovo 的 Numen](https://github.com/Dwinovo/minecraft-numen) 开发；原作者提供游戏内 AI 同伴底座，我们在其上研究长程任务、动作组合、世界记忆、学习和工程验证。**目前是开发与集成验证阶段，尚无经过独立新机验证的“一键安装即可体验完整 RDD”版本。**
 
+## 项目结构：四个平行入口
+
+```mermaid
+flowchart LR
+    F["restart-developmental-doer<br/>项目门面"]
+    D["rdd-docs-public<br/>独立架构知识层 · 图谱 / MCP"]
+    S["minecraft-numen<br/>游戏源码 · 实机实现"]
+    H["rdd-harness<br/>工程工具 · 验证 / 协作"]
+    F --> D
+    F --> S
+    F --> H
+    D -. 架构依据 .-> S
+    H -. 工程与验证 .-> S
+```
+
+`rdd-docs-public` 与源码、Harness 并列，是独立的架构知识入口，不是代码仓的附属文档目录；它有自己的导航、图谱和只读 MCP。
+
 ## 第一次来，从这三页开始
 
 - **[快速开始](QUICKSTART.md)**：不需要密钥的阅读与离线入口；开发者去哪里取代码；玩家目前能期待什么。
@@ -14,7 +31,7 @@
 
 ## AI 专用通道
 
-- **[AI-ENTRY.md](AI-ENTRY.md)**：外部编码、架构与验证 AI 的统一入口；先查架构 MCP，再读源码、Harness、门面三个实现仓。
+- **[AI-ENTRY.md](AI-ENTRY.md)**：外部编码、架构与验证 AI 的统一入口；先查架构 MCP，再读源码、Harness、门面三个实现仓与 `rdd-docs-public` 独立知识层。
 - 主人是 **Harness 工程师与架构师**，架构和 Harness 是强项；游戏源码已有大量实机运行内容，不是空项目，但完整框架尚未整体验收。
 - [AGENTS.md](AGENTS.md) 只放机器可执行指针，不复制第二份当前状态。
 
