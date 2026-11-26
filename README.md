@@ -12,6 +12,18 @@
 
 > **找游戏源码，请去 [minecraft-numen 的 main 分支](https://github.com/nuomi2422/minecraft-numen/tree/main)。本仓旧源码、补丁、工具和文档已移入 [archive/](archive/README.md)，不是当前实现或安装教程。**
 
+## AI 专用通道
+
+- **[AI-ENTRY.md](AI-ENTRY.md)**：外部编码、架构与验证 AI 的统一入口；先查架构 MCP，再读源码、Harness、门面三个实现仓。
+- 主人是 **Harness 工程师与架构师**，架构和 Harness 是强项；游戏源码已有大量实机运行内容，不是空项目，但完整框架尚未整体验收。
+- [AGENTS.md](AGENTS.md) 只放机器可执行指针，不复制第二份当前状态。
+
+## 查架构：先逛图谱，再读正文
+
+- **[公开架构图谱与 MCP](https://github.com/nuomi2422/rdd-docs-public/tree/main/图谱)**：按目标、模块、关系、决策和来源展开；可用 `arch_overview`、`arch_search`、`arch_focus`、`arch_status`。
+- **[公开架构正文](https://github.com/nuomi2422/rdd-docs-public/tree/main/架构)**：图谱指向的设计与证据位置。
+- 图谱是索引，不是世界真值、部署证明或开工授权；实现状态回源码和真实回执核。
+
 ## 项目怎样工作
 
 1. **看世界**：取得自己、附近环境及已知基地资源的可靠状态，区分当前、过期和未知。
