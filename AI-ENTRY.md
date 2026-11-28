@@ -25,12 +25,15 @@
 node cli.mjs arch_overview
 node cli.mjs arch_search 任务链
 node cli.mjs arch_focus taskchain
+node cli.mjs arch_flows
+node cli.mjs arch_verification taskchain
+node cli.mjs arch_impact taskchain
 node cli.mjs arch_integrity
 ```
 
 有私有文档权限时，内部 `rdd_architecture` 可作为增强入口；公开 AI 不需要私有权限也能完成第一轮架构定位。
 
-**判断边界：** 图谱是索引，不是世界真值、部署证明或自动派工器。设计、源码、构建、安装/加载、实机行为、效果必须分别核；`arch_next` 只是候选，不是授权。
+**判断边界：** 图谱是索引，不是世界真值、部署证明或自动派工器。设计、源码、构建、安装/加载、实机行为、效果必须分别核；架构卡不是观察结果；`arch_next` 只是候选，不是授权。
 
 ## 2. 四个平行仓都可以读
 

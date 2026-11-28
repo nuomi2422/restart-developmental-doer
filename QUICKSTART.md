@@ -6,7 +6,7 @@
 
 1. 读[首页](README.md)第一段，确认这是基于 Numen 的 RDD 研发项目，不是官方 Numen，也不是完成的安装包。
 2. 不懂的词看[十词表](GLOSSARY.md)，再看[状态页](STATUS.md)区分已有部分与待验。
-3. 打开[四包准备范围](https://github.com/nuomi2422/rdd-docs-public/blob/main/施工/055-四包并行准备.md)，看到的是计划及接口，不是已运行全部功能的证明。
+3. 打开[四包准备范围](https://github.com/nuomi2422/rdd-docs-public/blob/main/施工/055-轮回准备四组并行开发与联调.md)，看到的是计划及接口，不是已运行全部功能的证明。
 4. 想核实现，进入[源码 main](https://github.com/nuomi2422/minecraft-numen/tree/main)：rdd-core 管任务/资产，world-state-core 管观测，plugins 做游戏适配；api/core/ai 是底座与接缝。不要从本门面的归档复制代码。
 
 可选：本地只下载本门面并检查入门文件（不编译、不联网调用模型、不启动游戏）。需要 Git，文件夹名可自选：
@@ -35,4 +35,4 @@ Get-Item README.md, GLOSSARY.md, STATUS.md, QUICKSTART.md, docs/README.md | Sele
 
 ## 怎么判断一次效果
 
-当有对应获验版本可运行时，记录起点和目标、准确制品、实际调用、产出/世界后态与未覆盖条件。例如采集目标应看实际物品进入背包，而非动画或工具一句成功。现在可以读[通用验证经验](https://github.com/nuomi2422/rdd-docs-public/blob/main/经验/001-测试与实际生效.md)理解判据；它不是一次新实验的原始回执。
+当有对应获验版本可运行时，记录起点和目标、准确制品、实际调用、产出/世界后态与未覆盖条件。例如采集目标应看实际物品进入背包，而非动画或工具一句成功。现在可以读[通用验证经验](https://github.com/nuomi2422/rdd-docs-public/blob/main/入门/001-测试与实际生效摘要.md)理解判据；它不是一次新实验的原始回执。
